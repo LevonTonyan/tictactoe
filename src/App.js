@@ -10,7 +10,7 @@ function App() {
   
 
 
-let [turn, setTurn] = useState("X");
+
 let initState = [
   {id:0, value:""},
   {id:1, value:""},
@@ -24,10 +24,18 @@ let initState = [
 
 ];
 let [gameState, setGameState] = useState(initState);
+let [turn, setTurn] = useState("X");
+
+
 
 let matrix = gameState.map(el => el.value);
-let winner = "";
-let x = calculateWinner(matrix)=== null?true:winner = `${calculateWinner(matrix)}'s won the game`;
+
+
+let winnerCells = [];
+
+let winner  = calculateWinner(matrix)=== null?"":`${calculateWinner(matrix)}'s won the game`;
+
+
 const changeTurn = (id) => {
   
   let newState = gameState.map(cell => {
@@ -63,6 +71,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      winnerCells = lines[i] ;
       return squares[a];
     }
   }
@@ -83,14 +92,15 @@ function calculateWinner(squares) {
                     turn={turn}
                     changeTurn={changeTurn}
                     value={cell.value}
-                    id={cell.id}/>
+                    id={cell.id}
+                    winnerCells={winnerCells}/>
           ))
         }
           
           
       </div>
       <div  className="footer"><button onClick={reset} className='reset-btn'>RESET</button>
-      <div class="winner">{winner}</div>
+      <div className="winner">{winner}</div>
         
       </div>
     </div>

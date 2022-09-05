@@ -3,9 +3,15 @@
   height: 500px;
   background-color:rgb(51, 50, 65);
   border-radius: 15px;
-  text-align: center;
-
+  margin:20px auto;
 }
+
+.highligth {
+  background-color:rgb(228, 121, 121) !important;
+}
+
+
+
 
 
 .footer {
@@ -32,7 +38,7 @@ h1 {
 .cell {
   width: 90px;
   height: 90px;
-  background-color:rgb(134, 130, 194);
+  background-color:rgb(50, 41, 177);
   border-radius: 10px;
   border: 3px solid white;
   color: aliceblue;
