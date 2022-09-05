@@ -94,7 +94,7 @@ let gameFieldBlockedStyle = winnerCells.length?"game-field blocked":"game-field"
           
           
       </div>
-      <div  className="footer"><button onClick={reset} className='reset-btn'>RESET</button>
+      <div  className="footer"><button onClick={reset} className='reset-btn'>NEW GAME</button>
       <div className="winner">{winner}</div>
       </div>
     </div>
