@@ -4,11 +4,14 @@ import "./App.css";
 
 
 const CellItem = ({changeTurn, value, id, winnerCells}) => {
+
+    
+    //ONCLICK EVENT 
     function onClick(){
         changeTurn(id);
     }
-    let winnerStyle = winnerCells.includes(id)?"highligth cell":"cell";
-
+    //WINNER CELLS STYLE
+    let winnerStyle = winnerCells.includes(id)?"highligth cell blocked":"cell";
 
 
     return (

@@ -8,11 +8,12 @@
 
 .highligth {
   background-color:rgb(228, 121, 121) !important;
+  
 }
 
-
-
-
+.blocked {
+  pointer-events: none;
+}
 
 .footer {
   text-align: center;
@@ -31,7 +32,6 @@ h1 {
   color:white;
 }
 
-
 .score {
   color:white;
 }
@@ -46,7 +46,6 @@ h1 {
   text-align: center;
   
 }
-
 
 .game-field {
   width: 350px;

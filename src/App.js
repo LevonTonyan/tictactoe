@@ -5,12 +5,7 @@ import {useState} from 'react';
 
 
 function App() {
-
-
-  
-
-
-
+// VARIABLES //////////////////////////////////////////////////////////
 let initState = [
   {id:0, value:""},
   {id:1, value:""},
@@ -21,23 +16,23 @@ let initState = [
   {id:6, value:""},
   {id:7, value:""},
   {id:8, value:""},
-
 ];
+
+//STAETS
 let [gameState, setGameState] = useState(initState);
 let [turn, setTurn] = useState("X");
 
 
 
 let matrix = gameState.map(el => el.value);
-
-
 let winnerCells = [];
-
 let winner  = calculateWinner(matrix)=== null?"":`${calculateWinner(matrix)}'s won the game`;
 
 
+
+
+//Tracking the turns
 const changeTurn = (id) => {
-  
   let newState = gameState.map(cell => {
     if(cell.id === id){
       cell.value = turn;
@@ -46,17 +41,16 @@ const changeTurn = (id) => {
   });
   setGameState(newState);
   setTurn(turn==="X"?"O":"X");
-  
 };
 
-
+//Reset button functionality
 const reset = () => {
   setGameState(initState);
   setTurn("X");
 
 };
 
-
+//Winner calculation function
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -79,13 +73,14 @@ function calculateWinner(squares) {
 }
 
 
+//Game over field block style
+let gameFieldBlockedStyle = winnerCells.length?"game-field blocked":"game-field";
 
 
-
+//RENDERING THE APP COMPONENT
   return (
-    
     <div className="App">
-      <div className="game-field">
+      <div className={gameFieldBlockedStyle}>
         {
           gameState.map((cell) => (
            <CellItem key={cell.id} 
@@ -101,7 +96,6 @@ function calculateWinner(squares) {
       </div>
       <div  className="footer"><button onClick={reset} className='reset-btn'>RESET</button>
       <div className="winner">{winner}</div>
-        
       </div>
     </div>
   );
